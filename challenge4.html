@@ -40,8 +40,6 @@
     // I used Two functions here.  Starter idea at:
     // https://codepen.io/ColleenEMc/pen/XmZzWw
     function upDate(previewPic){
-  console.log(previewPic)
-  document.querySelector('#image').innerHTML = previewPic.alt
   // Make concatenated css background image command (i.e. 'url(' + var + ')')
  /* In this function you should
     1) change the url for the background image of the div with the id = "image"
@@ -50,7 +48,10 @@
     2) Change the text  of the div with the id = "image"
     to the alt text of the preview image
     */
-
+    console.log(previewPic);
+      imgBox = document.querySelector('#image');
+      imgBox.innerHTML = previewPic.alt;
+      imgBox.style.backgroundImage = ('url(' + previewPic.src + ')');
 	}
 
 	function unDo(){
@@ -61,7 +62,9 @@
     2) Change the text  of the div with the id = "image"
     back to the original text.  You can use the html code to see what that original text was
     */
-
+    imgBox = document.querySelector('#image');
+    imgBox.innerHTML = "Hover or tab over/into an image below." ;
+    imgBox.style.backgroundImage = "";
 	}
     </script>
 </head>
@@ -73,19 +76,18 @@
         </div>
 
         <!-- Your code goes in the img tag below.  Make sure to react to "hovering" and "tabbing": -->
-        <img class = "preview"
+        <img class = "preview" tabindex = "0"
             alt = "Styling with a Bandana"
-            src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/389177/bacon.jpg">
-
+            src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/389177/bacon.jpg" onmouseover = "upDate(this)" onfocus="upDate(this)" onblur="unDo()" onmouseleave = "unDo()";>
 
         <!-- Your code goes in the img tag below.  Make sure to react to "hovering" and "tabbing": -->
-        <img class = "preview"
+        <img class = "preview" tabindex = "0"
             alt = "With My Boy"
-            src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/389177/bacon2.JPG">
+            src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/389177/bacon2.JPG" onmouseover = "upDate(this)" onfocus="upDate(this)" onblur="unDo()" onmouseleave = "unDo()";>
 
         <!-- Your code goes in the img tag below.  Make sure to react to "hovering" and "tabbing": -->
-        <img class = "preview" tabindex = "1"
+        <img class = "preview" tabindex = "0"
             src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/389177/bacon3.jpg"
-            alt = "Young Puppy">
+            alt = "Young Puppy" onmouseover = "upDate(this)" onfocus="upDate(this)" onblur="unDo()" onmouseleave = "unDo()";>
 </body>
 </html>

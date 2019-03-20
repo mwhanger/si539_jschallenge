@@ -27,18 +27,29 @@ Add an if-else statement to your setHomeAddress() function so that when the chec
 	<title>Challenge Two</title>
 
     <script>
-	   function setHomeAddress(){
+	function setHomeAddress(){
       // YOUR  JavaScript CODE HERE
 			console.log('called');
 			let billing = document.querySelector('#bill').value;
 			console.log(billing);
-     }
+			let homeaddress = document.querySelector('#home');
+			let checked = document.querySelector('#useBilling').checked;
+	    if (checked === true) {
+	    	homeaddress.value = billing;
+				// homeaddress.readOnly = true;
+				homeaddress.disabled = true;
+	  }
+	  else {
+	    homeaddress.value = null;
+			homeaddress.disabled = false;
+	  }
+	};
     </script>
 </head>
 <body>
     <h1>Challenge Two</h1>
     <!-- UPDATE THE ACTION -->
-    <form action="">
+    <form action="challenge3.html">
       <fieldset>
         <legend>Billing Information</legend>
         <div>

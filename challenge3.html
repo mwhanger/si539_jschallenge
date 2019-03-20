@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Challenge 4</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <style>
 
-    .errorMsg { 
-        /*font: Use a cool Google font*/
+    .errorMsg {
+      font-family: 'Montserrat';
       color:red;
       display:none; }
     </style>
@@ -14,7 +15,29 @@
     <script>
     function checkForm(){
       // Write a function that displays the appropriate error message(s) if a field is left blank.  Make sure the form action is not performed if either field is blank.
+      let fieldText = document.querySelectorAll('input[type="text"]');
+      let errorText = document.querySelectorAll('p.errorMsg');
+      // console.log(fieldText);
+      let valid = 0;
+      for (var i = 0; i < fieldText.length; i++) {
+        console.log(i);
+        if (fieldText[i].value == "") {
+          errorText[i].style.display = 'block';
+          // errorText[field].innerHTML = "Please enter your name above";
+        }
+        else {
+          errorText[i].style.display = 'none';
+          valid++;
+        }
+      }
+    console.log("valid: " + valid);
+    if (valid == fieldText.length) {
+      return true;
     }
+    else{
+      return false;
+    };
+  };
     </script>
 </head>
 <body>
